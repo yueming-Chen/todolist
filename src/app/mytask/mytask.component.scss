@@ -1,0 +1,87 @@
+.header {
+  width: 100%;
+  background: #4a90e2;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 0rem 3rem;
+  .tab {
+    text-align: center;
+    padding: 1rem 0rem;
+    color: #00408b;
+    border-bottom: 3px solid #4a90e2;
+    &.active {
+      border-bottom: 3px solid #00408b;
+      color: white;
+    }
+  }
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  .card {
+    width: 100%;
+    .addTask {
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      color: #ccc;
+      width: 100%;
+      padding: .6rem;
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+    }
+  }
+  .task {
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    background: #f2f2f2;
+    display: flex;
+    padding: 1rem 1rem;
+    margin-top: 4px;
+    .check {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .info {
+      padding-left: 4px;
+      .title {
+        font-size: 1.1rem;
+      }
+      .date {}
+    }
+    .edit {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      i {
+        font-size: 1.3rem;
+        margin-right: .5rem;
+      }
+    }
+    &.star {
+      background: #fff2dc;
+      .fa-star {
+        color: #f5a623;
+      }
+    }
+    &.complete {
+      .title {
+        text-decoration: line-through;
+      }
+    }
+  }
+}
+
+.flex {
+  display: flex;
+}
+
+.f1 {
+  flex: 1;
+}
+
+.f2 {
+  flex: 2;
+}
