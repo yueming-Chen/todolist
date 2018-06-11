@@ -1,12 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-interface task {
-  title: string;
-  comments: string;
-  dueDate: Date;
-  isStar: boolean;
-  isEdit: boolean;
-  isDone: boolean;
-}
+import { task } from '../app.component';
 @Component({
   selector: 'app-mytask',
   templateUrl: './mytask.component.html',
@@ -31,7 +24,20 @@ export class MytaskComponent implements OnInit {
       };
       return obj;
     });
+    this.resortList();
 
+  }
+  private isExtend: boolean = false;
+
+  public taskList: task[];
+
+  public insertList(e) {
+    this.isExtend = false;
+    this.taskList.push(e);
+    this.resortList();
+  }
+
+  public resortList() {
     let statList = this.taskList.filter(v => v.isStar && !v.isDone).sort((a, b) => {
       if (a.dueDate < b.dueDate) return -1;
       else if (a.dueDate > b.dueDate) return 1;
@@ -50,9 +56,6 @@ export class MytaskComponent implements OnInit {
     });
     this.taskList = statList.concat(processList).concat(doneList);
   }
-  private isExtend: boolean = false;
-
-  public taskList: task[];
 
 
 }

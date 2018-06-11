@@ -18,7 +18,7 @@
       </div>
 
       <div class="date">
-        <i class="far fa-calendar-alt">{{ dueDate | dueDate :shortDate}}</i>
+        <i class="far fa-calendar-alt"> {{ dueDate | date :shortDate}}</i>
       </div>
     </div>
     <div class="edit f1">
@@ -33,7 +33,7 @@
         <i class="far fa-calendar"> Deadline:</i>
       </div>
       <div class="input">
-        <input type="date" name="edittime" id="" [(ngModel)]="dateTime">
+        <input type="date" name="edittime" id="" [(ngModel)]="dueDate">
       </div>
     </div>
     <div class="form-row f f-c">
@@ -49,17 +49,17 @@
         <i class="fas fa-comment-dots"> Comment:</i>
       </div>
       <div class="input">
-        <textarea cols="30" placeholder="comment somthing info." [(ngModel)]="comments"></textarea>
+        <textarea cols="30" placeholder="comment somthing info." [(ngModel)]="comment"></textarea>
       </div>
     </div>
 
   </div>
   <div class="ButtonForm f f-r" *ngIf="isEdit">
     <div class="cancel-btn f1">
-      <i class="fas fa-times"> Cancel</i>
+      <i class="fas fa-times" (click)="isEdit=false"> Cancel</i>
     </div>
     <div class="submit-btn f1">
-      <i class="fas fa-plus"> Submit</i>
+      <i class="fas fa-plus" (click)="submit()"> Submit</i>
     </div>
   </div>
 </div>

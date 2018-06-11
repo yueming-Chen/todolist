@@ -11,7 +11,8 @@
   <div class="f2 list">
     <div class="card">
       <input type="text" name="" id="" class="addTask" placeholder=" + add task" (focus)="isExtend=true" [hidden]="isExtend">
-      <app-task title="Type something here...." dueDate="" [isStar]="false" [isDone]="false" [isEdit]="true" [hidden]="!isExtend"></app-task>
+      <app-task title="Type something here...." dueDate="" [isStar]="false" [isDone]="false" [isEdit]="true" [hidden]="!isExtend"
+        (addTask)="insertList($event)"></app-task>
     </div>
 
     <ng-template ngFor [ngForOf]="taskList" let-item let-i="index">

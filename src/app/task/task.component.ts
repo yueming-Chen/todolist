@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { task } from '../app.component';
 
 @Component({
   selector: 'app-task',
@@ -57,6 +58,30 @@ export class TaskComponent implements OnInit {
     this.commentChange.emit(this.comment);
   }
 
+  @Output()
+  public addTask: EventEmitter<task> = new EventEmitter();
 
+  submit() {
+    console.log('asdasd');
+    let obj: task = {
+      title: this.title,
+      comments: this.comment,
+      dueDate: this.dueDate,
+      isDone: this.isDone,
+      isStar: this.isStar,
+      isEdit: false
+    }
+    this.addTask.emit(obj);
+    this.clear();
+  }
 
+  public clear() {
+    this.isEdit = false;
+    this.title = '';
+    this.comment = '';
+    this.dueDate = new Date();
+    this.isDone = false;
+    this.isStar = false;
+
+  }
 }
