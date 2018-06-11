@@ -1,0 +1,65 @@
+<ng-template #title_input>
+  <input type="text" class="title-input" [(ngModel)]="title" (focus)="isTitleInputFocus=true" [class.active]="isTitleInputFocus"
+    (blur)="isTitleInputFocus=false">
+</ng-template>
+
+<div class="flex container">
+  <div class="task" [ngClass]="{task:true,star:isStar,complete:isDone}">
+    <div class="check">
+      <label for="c1">
+        <input type="checkbox" name="c1" id="" [checked]="isDone" (change)="isDone=$event.target.checked" [hidden]="isEdit">
+        <span></span>
+      </label>
+    </div>
+    <div class="info f2">
+
+      <div class="title" *ngIf="!isEdit;else title_input">
+        {{title}}
+      </div>
+
+      <div class="date">
+        <i class="far fa-calendar-alt">{{ dueDate | dueDate :shortDate}}</i>
+      </div>
+    </div>
+    <div class="edit f1">
+      <i class="fas fa-star" (click)="isStar=!isStar"></i>
+      <i class="fas fa-edit" [class.isEdit]="isEdit"></i>
+    </div>
+  </div>
+
+  <div class="editForm" *ngIf="isEdit">
+    <div class="form-row f f-c">
+      <div class="sub-title">
+        <i class="far fa-calendar"> Deadline:</i>
+      </div>
+      <div class="input">
+        <input type="date" name="edittime" id="" [(ngModel)]="dateTime">
+      </div>
+    </div>
+    <div class="form-row f f-c">
+      <div class="sub-title">
+        <i class="far fa-file"> File:</i>
+      </div>
+      <div class="input">
+        <i class="fas fa-plus"></i>
+      </div>
+    </div>
+    <div class="form-row f f-c">
+      <div class="sub-title">
+        <i class="fas fa-comment-dots"> Comment:</i>
+      </div>
+      <div class="input">
+        <textarea cols="30" placeholder="comment somthing info." [(ngModel)]="comments"></textarea>
+      </div>
+    </div>
+
+  </div>
+  <div class="ButtonForm f f-r" *ngIf="isEdit">
+    <div class="cancel-btn f1">
+      <i class="fas fa-times"> Cancel</i>
+    </div>
+    <div class="submit-btn f1">
+      <i class="fas fa-plus"> Submit</i>
+    </div>
+  </div>
+</div>

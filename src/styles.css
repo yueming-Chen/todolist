@@ -13,3 +13,24 @@ div {
 * {
   box-sizing: border-box;
 }
+
+.flex,
+.f {
+  display: flex;
+}
+
+.f-r {
+  flex-direction: row;
+}
+
+.f-c {
+  flex-direction: column;
+}
+
+.f1 {
+  flex: 1;
+}
+
+.f2 {
+  flex: 2;
+}

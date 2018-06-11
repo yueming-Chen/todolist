@@ -6,63 +6,19 @@
   <div class="f2"></div>
 </header>
 
-<section class="flex">
+<section class="flex main">
   <div class="f1"></div>
   <div class="f2 list">
     <div class="card">
-      <input type="text" name="" id="" class="addTask" placeholder=" + add task">
+      <input type="text" name="" id="" class="addTask" placeholder=" + add task" (focus)="isExtend=true" [hidden]="isExtend">
+      <app-task title="Type something here...." dueDate="" [isStar]="false" [isDone]="false" [isEdit]="true" [hidden]="!isExtend"></app-task>
     </div>
-    <div class="task">
-      <div class="check">
-        <label for="c1">
-          <input type="checkbox" name="c1" id="">
-          <span> </span>
-        </label>
-      </div>
-      <div class="info f2">
-        <div class="title">Type something here....</div>
-        <div class="date">
-          <i class="fas fa-calendar-alt"></i>5/14</div>
-      </div>
-      <div class="edit f1">
-        <i class="fas fa-star"></i>
-        <i class="fas fa-edit"></i>
-      </div>
-    </div>
-    <div class="task star">
-      <div class="check">
-        <label for="c1">
-          <input type="checkbox" name="c1" id="">
-          <span> </span>
-        </label>
-      </div>
-      <div class="info f2">
-        <div class="title">Type something here....</div>
-        <div class="date">
-          <i class="fas fa-calendar-alt"></i>5/14</div>
-      </div>
-      <div class="edit f1">
-        <i class="fas fa-star"></i>
-        <i class="fas fa-edit"></i>
-      </div>
-    </div>
-    <div class="task complete">
-      <div class="check">
-        <label for="c1">
-          <input type="checkbox" name="c1" id="" checked>
-          <span> </span>
-        </label>
-      </div>
-      <div class="info f2">
-        <div class="title">Type something here....</div>
-        <div class="date">
-          <i class="fas fa-calendar-alt"></i>5/14</div>
-      </div>
-      <div class="edit f1">
-        <i class="fas fa-star"></i>
-        <i class="fas fa-edit"></i>
-      </div>
-    </div>
+
+    <ng-template ngFor [ngForOf]="taskList" let-item let-i="index">
+      <app-task [title]="item.title" [isStar]="item.isStar" [isDone]="item.isDone" [dueDate]="item.dueDate"></app-task>
+    </ng-template>
+
+
   </div>
   <div class="f1"></div>
 </section>

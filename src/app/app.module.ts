@@ -1,8 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { Routes, Router, RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { Routes, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { MytaskComponent } from './mytask/mytask.component';
+import { TaskComponent } from './task/task.component';
 
 const routes: Routes = [
   { path: 'mytask', component: MytaskComponent }
@@ -13,9 +15,11 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    MytaskComponent
+    MytaskComponent,
+    TaskComponent,
   ],
   imports: [
+    FormsModule,
     BrowserModule,
     RouterModule.forRoot(routes)
   ],
