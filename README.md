@@ -4,7 +4,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Demo Page
 
-[Demo](https://vbwiponx.github.stackblitz.io/mytask) by StackBlitz.
+[Demo](https://stackblitz.com/github/yueming-chen/todolist) by StackBlitz.
 
 ## Further help
 
